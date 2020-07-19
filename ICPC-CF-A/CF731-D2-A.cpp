@@ -5,7 +5,9 @@
 using namespace std;
 
 int main() {
-
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+    
     string word;
     getline(cin,word);
     int position = 0,
