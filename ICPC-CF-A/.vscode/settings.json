@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "xiosbase": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "algorithm": "cpp",
+        "limits": "cpp"
     }
 }
