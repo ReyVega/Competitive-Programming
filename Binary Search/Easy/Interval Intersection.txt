@@ -1,0 +1,18 @@
+vector<int> solve(vector<vector<int>>& intervals) {
+    vector<int> resultado;
+
+    int l = intervals[0][0]; 
+    int r = intervals[0][1]; 
+    
+    for (int i = 1; i < intervals.size(); i++) { 
+        if (intervals[i][0] > r || intervals[i][1] < l) {
+            return resultado; 
+        } else { 
+            l = max(l, intervals[i][0]); 
+            r = min(r, intervals[i][1]); 
+        } 
+    } 
+    resultado.push_back(l);
+    resultado.push_back(r);
+    return resultado;
+}

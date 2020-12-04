@@ -1,0 +1,14 @@
+vector<int> solve(vector<int>& lst0, vector<int>& lst1) {
+    vector<int> resultado;
+    
+    for(int i = 0; i < lst0.size(); i++) {
+        resultado.push_back(lst0[i]);
+    }
+    
+    for(int i = 0; i < lst1.size(); i++) {
+        resultado.push_back(lst1[i]);
+    }
+    
+    sort(resultado.begin(), resultado.end());
+    return resultado;
+}

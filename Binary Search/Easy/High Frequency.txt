@@ -1,0 +1,13 @@
+int solve(vector<int>& nums) {
+    int maxResult = 0;
+    map<int, int> m;
+    
+    for(int i = 0; i < nums.size(); i++) {
+        m[nums[i]]++;
+    }
+    
+    for(auto i : m) {
+        maxResult = max(maxResult, i.second);
+    }
+    return maxResult;
+}
