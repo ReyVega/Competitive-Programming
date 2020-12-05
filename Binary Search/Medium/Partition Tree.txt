@@ -1,0 +1,28 @@
+/**
+ * class Tree {
+ *     public:
+ *         int val;
+ *         Tree *left;
+ *         Tree *right;
+ * };
+ */
+ 
+void preorder(Tree* root, vector<int>& v) {
+    if(root == NULL) {
+        return;
+    }
+    
+    if(root->left == NULL && root->right == NULL) {
+        v[0]++;
+    } else {
+        v[1]++;
+    }
+    preorder(root->left,v);
+    preorder(root->right,v);
+}
+
+vector<int> solve(Tree* root) {
+    vector<int> v(2);
+    preorder(root, v);
+    return v;
+}
