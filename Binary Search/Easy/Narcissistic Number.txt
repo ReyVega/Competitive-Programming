@@ -1,0 +1,14 @@
+bool solve(int n) {
+    string s = to_string(n);
+    
+    int suma = 0;
+    for(int i = 0; i < s.size(); i++) {
+        suma += pow(s[i] - '0', s.size());
+    }
+    
+    if(suma == n) {
+        return true;
+    } else {
+        return false;
+    }
+}

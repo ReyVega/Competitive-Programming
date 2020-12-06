@@ -1,0 +1,23 @@
+/**
+ * class LLNode {
+ *     public:
+ *         int val;
+ *         LLNode *next;
+ * };
+ */
+int solve(LLNode* node) {
+    string s = "";
+    while(node != NULL) {
+        s += to_string(node->val);
+        node = node->next;
+    }
+    
+    int resultado = 0;
+    for(int i = s.size() - 1,j = 0; i >= 0; i--, j++) {
+        if(s[i] != '0') {
+            resultado += pow(2, j);
+        }
+    }
+    int res = (int) resultado;
+    return res;
+}

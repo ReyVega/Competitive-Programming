@@ -1,0 +1,16 @@
+int solve(string s) {
+    stack<char> st;
+    int counter = 0;
+    
+    for(char c : s) {
+        if(c == ')') {
+            if(!st.empty()) {
+                st.pop();
+                counter += 2;
+            }
+        } else {
+            st.push(c);
+        }
+    }
+    return counter;
+}
