@@ -1,0 +1,21 @@
+int solve(string s, int k) {
+    map<char, int> m;
+    
+    for(int i = 0; i < s.size(); i++) {
+        m[s[i]]++;
+    }
+    
+    vector<int> v;
+    for(auto c : m) {
+        v.push_back(c.second);
+    }
+    
+    sort(v.begin(), v.end());
+    
+    int changes = 0;
+    while(k < v.size()) {
+        changes += v[0];
+        v.erase(v.begin());
+    }
+    return changes;
+}

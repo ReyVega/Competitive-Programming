@@ -1,0 +1,16 @@
+vector<int> solve(vector<int>& nums) {
+    int index = 0,
+        cont = 0;
+    for(int i = 0; i < nums.size(); i++) {
+        if(nums[i] % 2 == 0) {
+            if(cont == 0) {
+                index = i;
+                cont++;
+            } else {
+                swap(nums[i], nums[index]);
+                cont = 0;
+            }
+        }
+    }
+    return nums;
+}

@@ -1,0 +1,16 @@
+vector<string> solve(string s, int n) {
+    string tmp = "";
+    vector<string> v;
+    
+    for(int i = 0; i < s.size(); i++) {
+        if(tmp.size() == n) {
+            v.push_back(tmp);
+            tmp = "";
+            i--;
+        } else {
+            tmp += s[i];
+        }
+    }
+    v.push_back(tmp);
+    return v;
+}

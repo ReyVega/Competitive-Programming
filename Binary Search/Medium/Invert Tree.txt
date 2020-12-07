@@ -1,0 +1,27 @@
+/**
+ * class Tree {
+ *     public:
+ *         int val;
+ *         Tree *left;
+ *         Tree *right;
+ * };
+ */
+ 
+void mirror(Tree* root) {
+    if(root == NULL) {
+        return;
+    }
+    Tree* tmp;
+    
+    mirror(root->left);
+    mirror(root->right);
+    
+    tmp = root->left;
+    root->left = root->right;
+    root->right = tmp;
+}
+
+Tree* solve(Tree* root) {
+    mirror(root);
+    return root;
+}

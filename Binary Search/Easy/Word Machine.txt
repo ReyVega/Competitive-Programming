@@ -1,0 +1,47 @@
+int solve(vector<string>& ops) {
+    stack<int> s;
+    
+    for(int i = 0; i < ops.size(); i++) {
+        if(ops[i] == "POP") {
+            if(s.empty()) {
+                return -1;
+            }
+            s.pop();
+        } else if(ops[i] == "DUP") {
+            if(s.empty()) {
+                return -1;
+            }
+            int dup = s.top();
+            s.pop();
+            s.push(dup);
+            s.push(dup);
+        } else if(ops[i] == "+") {
+            if(s.empty()) {
+                return -1;
+            }
+            int top = s.top();
+            s.pop();
+            if(s.empty()) {
+                return -1;
+            }
+            int second = s.top();
+            s.pop();
+            s.push(top + second);
+        } else if(ops[i] == "-") {
+            if(s.empty()) {
+                return -1;
+            }
+            int top = s.top();
+            s.pop();
+            if(s.empty()) {
+                return -1;
+            }
+            int second = s.top();
+            s.pop();
+            s.push(top - second);
+        } else {
+            s.push(stoi(ops[i]));
+        }
+    }
+    return s.top();
+}

@@ -1,0 +1,14 @@
+vector<string> solve(int n) {
+    vector<string> r;
+    for(int i = 1; i < n + 1; i++) {
+        if(i % 3 == 0 || 
+            to_string(i).find("3") != string::npos ||
+            to_string(i).find("6") != string::npos ||
+            to_string(i).find("9") != string::npos) {
+            r.push_back("clap");
+        } else {
+            r.push_back(to_string(i));
+        }
+    }
+    return r;
+}

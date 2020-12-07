@@ -1,0 +1,17 @@
+bool solve(vector<int>& nums) {
+    int maxNumber1 = 0,
+        maxNumber2 = 0;
+        
+    for(int i = 0; i < nums.size(); i++) {
+        if(nums[i] > maxNumber1) {
+            maxNumber2 = maxNumber1;
+            maxNumber1 = nums[i];
+        } else if(nums[i] > maxNumber2) {
+            maxNumber2 = nums[i];
+        }
+    }
+    int max1 = max(maxNumber1, maxNumber2),
+        max2 = 2 * min(maxNumber1,maxNumber2);
+        
+    return max1 > max2;
+}

@@ -1,0 +1,35 @@
+/**
+ * class Tree {
+ *     public:
+ *         int val;
+ *         Tree *left;
+ *         Tree *right;
+ * };
+ */
+ 
+void inorder(Tree* root, string& s) {
+    if(root == NULL) {
+        return;
+    }
+    
+    inorder(root->left, s);
+    s += to_string(root->val);
+    inorder(root->right, s);
+}
+
+bool solve(Tree* root) {
+    string s;
+    inorder(root, s);
+    
+    int l = 0,
+        r = s.size() - 1;
+    while(l <= r) {
+        if(s[l] == s[r]) {
+            l++;
+            r--;
+        } else {
+            return false;
+        }
+    }
+    return true;
+}

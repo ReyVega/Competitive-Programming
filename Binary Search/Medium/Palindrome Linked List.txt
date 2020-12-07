@@ -1,0 +1,27 @@
+/**
+ * class LLNode {
+ *     public:
+ *         int val;
+ *         LLNode *next;
+ * };
+ */
+bool solve(LLNode* node) {
+    string s;
+    while(node != NULL) {
+        s += node->val;
+        node = node->next;
+    }
+    
+    int l = 0,
+        r = s.size() - 1;
+        
+    while(l <= r) {
+        if(s[l] == s[r]) {
+            l++;
+            r--;
+        } else {
+            return false;
+        }
+    }
+    return true;
+}

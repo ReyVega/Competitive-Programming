@@ -1,0 +1,14 @@
+int solve(vector<int>& nums) {
+    if (nums.size() == 1) {
+        return 0;   
+    }
+    
+    int maxVal = INT_MIN,
+        minVal = INT_MAX;
+        
+    for (int i = 0; i < nums.size(); i++) {
+        maxVal = max(maxVal, nums[i]);
+        minVal = min(minVal, nums[i]);
+    }
+    return maxVal - minVal;
+}
