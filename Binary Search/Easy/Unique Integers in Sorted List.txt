@@ -1,0 +1,13 @@
+int solve(vector<int>& nums) {
+    int n = nums[0];
+    int ans = 1;
+    while (true) {
+        auto it = upper_bound(nums.begin(), nums.end(), n);
+        if (it == nums.end()) {
+            break;   
+        }
+        ++ans;
+        n = *it;
+    }
+    return ans;
+}

@@ -1,0 +1,13 @@
+
+int solve(int a) {
+    int product = 1, 
+        j = 2;
+    while(product <= a) {
+        if(product == a) {
+            return --j;
+        }
+        product *= j;
+        j++;
+    }
+    return -1;
+}

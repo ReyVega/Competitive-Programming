@@ -1,0 +1,10 @@
+bool solve(int n) {
+    int cont = 0;
+    while(n > 0) {
+        if(n % 2 == 1) {
+            cont++;
+        }
+        n = n / 2;
+    }
+    return cont == 1;
+}

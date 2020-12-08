@@ -1,0 +1,32 @@
+void header(string& result, int maxValue, bool flag) {
+    for(int i = 0; i < maxValue + 4; i++) {
+        result += "*";
+    }
+    if(flag) {
+        result += "\n";
+    }
+}
+
+string solve(vector<string>& words) {
+    string result = "";
+    int maxValue = 0;
+    for(int i = 0; i < words.size(); i++) {
+        if(words[i].size() > maxValue) {
+            maxValue = words[i].size();
+        }
+    }
+
+    header(result, maxValue, true);
+    for(int i = 0; i < words.size(); i++) {
+        string tmp = "* ";
+        tmp += words[i];
+        while(tmp.size() < maxValue + 3) {
+            tmp += " ";
+        }
+        tmp += "*\n";
+        result += tmp;
+    }
+    header(result, maxValue, false);
+    return result;
+}
+

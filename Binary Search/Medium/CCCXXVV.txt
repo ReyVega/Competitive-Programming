@@ -1,0 +1,21 @@
+int solve(string numeral) {
+    unordered_map<char, int> um;
+
+    um.insert({'M', 1000});
+    um.insert({'D', 500});
+    um.insert({'C', 100});
+    um.insert({'L', 50});
+    um.insert({'X', 10});
+    um.insert({'V', 5});
+    um.insert({'I', 1});
+   
+    int number = 0;
+    for (int i = 0; i < numeral.size(); i++) {
+        number += um[numeral[i]];
+
+        if (i > 0 && um[numeral[i - 1]] < um[numeral[i]]) {
+            number -= 2 * um[numeral[i - 1]];
+        }
+    }
+    return number;
+}

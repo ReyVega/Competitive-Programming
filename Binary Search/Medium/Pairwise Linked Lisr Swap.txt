@@ -1,0 +1,16 @@
+/**
+ * class LLNode {
+ *     public:
+ *         int val;
+ *         LLNode *next;
+ * };
+ */
+LLNode* solve(LLNode* node) {
+    LLNode* tmp = node;
+
+    while(tmp != NULL && tmp->next != NULL) {
+        swap(tmp->val, tmp->next->val);
+        tmp = tmp->next->next;
+    }
+    return node;
+}

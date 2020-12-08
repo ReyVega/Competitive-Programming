@@ -1,0 +1,40 @@
+/**
+ * class Tree {
+ *     public:
+ *         int val;
+ *         Tree *left;
+ *         Tree *right;
+ * };
+ */
+
+/**
+ * class LLNode {
+ *     public:
+ *         int val;
+ *         LLNode *next;
+ * };
+ */
+void find(Tree* root, vector<int>& v) {
+    if (root == NULL) {
+        return;   
+    }
+    find(root->left, v);
+    v.push_back(root->val);
+    find(root->right, v);
+}
+
+LLNode* solve(Tree* root) {
+    if (root == NULL) {
+        return NULL;
+    }
+    vector<int> v;
+    find(root, v);
+    
+    LLNode* start = new LLNode(v[0]);
+    LLNode* end = start;
+    for (int i = 1; i < v.size(); i++) {
+        end->next = new LLNode(v[i]);
+        end = end->next;
+    }
+    return start;
+}

@@ -1,0 +1,29 @@
+/**
+ * class Tree {
+ *     public:
+ *         int val;
+ *         Tree *left;
+ *         Tree *right;
+ * };
+ */
+bool solve(Tree* root) {
+    int left_data = 0, right_data = 0; 
+    
+    if(root == NULL || root->left == NULL && root->right == NULL) {
+        return true;
+    }
+    
+    if(root->left != NULL) {
+        left_data = root->left->val;
+    }
+    
+    if(root->right != NULL) {
+        right_data = root->right->val;
+    }
+    
+    if((left_data + right_data) == root->val && solve(root->left) && solve(root->right)) {
+        return true;
+    } else {
+        return false;
+    }
+}

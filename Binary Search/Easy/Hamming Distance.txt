@@ -1,0 +1,11 @@
+int solve(int x, int y) {
+    int m = x ^ y; 
+    cout << m;
+    int setBits = 0; 
+  
+    while (m > 0) { 
+        setBits += m & 1; 
+        m >>= 1; 
+    } 
+    return setBits; 
+}

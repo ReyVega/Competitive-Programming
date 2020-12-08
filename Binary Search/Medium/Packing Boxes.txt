@@ -1,0 +1,16 @@
+vector<vector<int>> solve(vector<int>& nums) {
+    vector<vector<int>> matrix;
+    vector<int> tmp;
+    int cont = 0;
+    
+    for(int i = 0; i < nums.size(); i++) {
+        if(nums[i] == nums[i + 1] && i + 1 < nums.size()) {
+            tmp.push_back(nums[i]);
+        } else {
+            tmp.push_back(nums[i]);
+            matrix.push_back(tmp);
+            tmp.clear();
+        }
+    }
+    return matrix;
+}

@@ -1,0 +1,19 @@
+int solve(string s) {
+    int distance = 0,
+        span = 0;
+
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'L') {
+            distance--;
+        } else if (s[i] == 'R') {
+            distance++;
+        } else {
+            span++;
+        }
+    }
+
+    if (distance < 0) {
+        distance = -distance;
+    }
+    return distance + span;
+}

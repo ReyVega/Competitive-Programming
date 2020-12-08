@@ -1,0 +1,13 @@
+bool solve(vector<vector<int>>& votes) {
+    int hash[votes.size()] = {0};
+    
+    for (int i = 0; i < votes.size(); i++) {
+        hash[votes[i][1]]++;
+    }
+    for (int i = 0; i < votes.size(); i++) {
+        if (hash[i] > 1) {
+            return true;   
+        }
+    }
+    return false;
+}

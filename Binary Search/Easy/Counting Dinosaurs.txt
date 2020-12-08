@@ -1,0 +1,14 @@
+int solve(string animals, string dinosaurs) {
+    set<char> s;
+    for(int i = 0; i < dinosaurs.size(); i++) {
+        s.insert(dinosaurs[i]);
+    }
+    
+    int counter = 0;
+    for(int i = 0; i < animals.size(); i++) {
+        if(s.count(animals[i])) {
+            counter++;
+        }
+    }
+    return counter;
+}

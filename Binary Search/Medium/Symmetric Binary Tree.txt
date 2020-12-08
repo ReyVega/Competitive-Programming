@@ -1,0 +1,25 @@
+/**
+ * class Tree {
+ *     public:
+ *         int val;
+ *         Tree *left;
+ *         Tree *right;
+ * };
+ */
+ 
+bool isMirror(Tree* root1, Tree* root2) {
+    if(root1 == NULL && root2 == NULL) {
+        return true;
+    } else if(root1 == NULL || root2 == NULL) {
+        return false;
+    } else {
+        return root1->val == root2->val && isMirror(root1->left,root2->right) && isMirror(root1->right,root2->left);
+    }
+}
+
+bool solve(Tree* root) {
+    if(root == NULL) {
+        return true;
+    }
+    return isMirror(root->left, root->right);
+}

@@ -1,0 +1,27 @@
+/**
+ * class Tree {
+ *     public:
+ *         int val;
+ *         Tree *left;
+ *         Tree *right;
+ * };
+ */
+ 
+void inorder(Tree* root, int& cont) {
+    if(root == NULL) {
+        return;
+    }
+    
+    if((root->left != NULL && root->right == NULL) ||
+       (root->left == NULL && root->right != NULL)) {
+        cont++;
+    }
+    
+    inorder(root->left, cont);
+    inorder(root->right, cont);
+}
+int solve(Tree* root) {
+    int cont = 0;
+    inorder(root, cont);
+    return cont;
+}

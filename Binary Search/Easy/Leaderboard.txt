@@ -1,0 +1,19 @@
+vector<int> solve(vector<int>& nums) {
+    unordered_map<int, int> um;
+    vector<int> vec = nums;
+    sort(vec.begin(), vec.end());
+    reverse(vec.begin(), vec.end());
+    
+    int j = 0;
+    for (int i = 0; i < vec.size(); i++) {
+        while (vec[i] == vec[i + 1]) {
+            i++;
+        }
+        um[vec[i]] = j++;
+    }
+    
+    for (int i = 0; i < nums.size(); i++) {
+        nums[i] = um[nums[i]];
+    }
+    return nums;
+}
