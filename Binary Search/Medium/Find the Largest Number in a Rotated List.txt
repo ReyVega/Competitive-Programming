@@ -1,0 +1,21 @@
+int solve(vector<int>& arr) {
+    int left = 0,
+        right = arr.size() - 1;
+    while(left + 1 < right) {
+        int mid = left + (right - left) / 2;
+
+        if(arr[mid] == arr[left]) {
+            left = mid;
+        } else if(arr[mid] < arr[left]) {
+            right = mid;
+        } else {
+            left = mid;
+        }
+    }
+    
+    if(arr[right] >= arr[left]) {
+        return arr[right];
+    } else {
+        return arr[left];
+    }
+}

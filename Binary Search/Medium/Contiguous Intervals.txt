@@ -1,0 +1,17 @@
+vector<vector<int>> solve(vector<int>& nums) {
+    sort(nums.begin(), nums.end());
+    vector<vector<int>> m;
+    
+    vector<int> tmp;
+    for(int i = 0; i < nums.size(); i++) {
+        int index = i;
+        while(abs(nums[i] - nums[i + 1]) == 1) {
+            i++;
+        }
+        tmp.push_back(nums[index]);
+        tmp.push_back(nums[i]);
+        m.push_back(tmp);
+        tmp.clear();
+    }
+    return m;
+}
