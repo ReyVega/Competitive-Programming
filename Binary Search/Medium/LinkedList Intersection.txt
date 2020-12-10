@@ -1,0 +1,26 @@
+/**
+ * class LLNode {
+ *     public:
+ *         int val;
+ *         LLNode *next;
+ * };
+ */
+LLNode* solve(LLNode* l0, LLNode* l1) {
+    LLNode* start = new LLNode();
+    LLNode* end = start;
+    
+    while (l0) {
+        while (l1 && l1->val < l0->val) {
+            l1 = l1->next;
+        }
+
+        if (l1 && l1->val == l0->val) {
+            end->next = l1;
+            end = end->next;
+            l1 = l1->next;
+        }
+        l0 = l0->next;
+    }
+    end->next = NULL;
+    return start->next;
+}

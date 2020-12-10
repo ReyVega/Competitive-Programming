@@ -1,0 +1,15 @@
+int solve(vector<int>& nums) {
+    int sublists = nums.size();
+    unordered_map<int, int> um;
+    
+    for(int n : nums) {
+        um[n]++;
+    }
+    
+    for(auto c : um) {
+        if(c.second != 1) {
+            sublists += (c.second - 1) * (c.second) / 2;
+        }
+    }
+    return sublists;
+}
