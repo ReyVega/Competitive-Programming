@@ -1,0 +1,31 @@
+vector<int> solve(vector<int>& nums) {
+    vector<int> even, 
+                odd,
+                result; 
+    vector<bool> positions;
+
+    for(int i = 0; i < nums.size(); i++) {
+        if(nums[i] % 2 == 0) {
+            even.push_back(nums[i]);
+            positions.push_back(true);
+        } else {
+            odd.push_back(nums[i]);
+            positions.push_back(false);
+        }
+    }
+
+    sort(even.begin(), even.end());
+    sort(odd.begin(), odd.end());
+    reverse(odd.begin(), odd.end());
+
+    int k = 0, 
+        m = 0;
+    for(int i = 0; i < positions.size(); i++) {
+        if(positions[i]) {
+            result.push_back(even[k++]);
+        } else {
+            result.push_back(odd[m++]);
+        }
+    }
+    return result;
+}
