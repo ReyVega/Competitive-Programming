@@ -1,0 +1,19 @@
+vector<string> solve(string s) {
+    vector<string> result;
+    string tmp = "";
+    int count = 0;
+
+    for (int i = 0; i < s.size(); i++) {
+        tmp += s[i];
+        if (s[i] == '(') {
+            count++;
+        } else {
+            count--;
+            if (count == 0) {
+                result.push_back(tmp);
+                tmp.clear();
+            }
+        }
+    }
+    return result;
+}

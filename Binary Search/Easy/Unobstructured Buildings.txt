@@ -1,0 +1,17 @@
+vector<int> solve(vector<int>& heights) {
+    if(heights.size() == 0) {
+        return {};
+    }
+
+    vector<int> result;
+    int height = heights[heights.size() - 1];
+    result.push_back(heights.size() - 1);
+
+    for(int i = heights.size() - 2; i >= 0; i--) {
+        if(heights[i] > height) {
+            result.insert(result.begin(), i);
+            height = heights[i];
+        }
+    }
+    return result;
+}
