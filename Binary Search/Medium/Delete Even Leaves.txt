@@ -1,0 +1,22 @@
+/**
+ * class Tree {
+ *     public:
+ *         int val;
+ *         Tree *left;
+ *         Tree *right;
+ * };
+ */
+Tree* solve(Tree* root) {
+    if(root == NULL) {
+        return root;
+    }
+
+    root->left = solve(root->left);
+    root->right = solve(root->right);
+
+    if(root->val % 2 == 0 && root->right == NULL && root->left == NULL) {
+        return NULL;
+    }
+
+    return root;
+}

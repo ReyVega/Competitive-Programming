@@ -1,0 +1,19 @@
+vector<int> solve(vector<int>& nums) {
+    int carry = 1,
+        curr = 0;
+
+    for(int i = nums.size() - 1; i >= 0; i--) {
+        curr = nums[i];
+        nums[i] = (curr + carry) % 10;
+        carry = (curr + carry) / 10;
+        if(carry == 0) {
+            return nums;
+        }
+    }
+
+    if(carry) {
+        nums.insert(nums.begin(), 1);
+    }
+   
+    return nums;
+}

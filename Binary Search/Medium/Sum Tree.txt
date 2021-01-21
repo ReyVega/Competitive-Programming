@@ -21,9 +21,5 @@ bool solve(Tree* root) {
         right_data = root->right->val;
     }
     
-    if((left_data + right_data) == root->val && solve(root->left) && solve(root->right)) {
-        return true;
-    } else {
-        return false;
-    }
+    return (left_data + right_data) == root->val && solve(root->left) && solve(root->right);
 }

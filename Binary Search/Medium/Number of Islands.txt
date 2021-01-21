@@ -11,9 +11,6 @@ void DFS(vector<vector<int>>& matrix, int i, int j) {
 }
 
 int solve(vector<vector<int>>& matrix) {
-    if(matrix.size() == 0) {
-        return 0;
-    }
     int numberOfIslands = 0;
     
     for(int i = 0; i < matrix.size(); i++) {
