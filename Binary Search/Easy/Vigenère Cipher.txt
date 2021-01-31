@@ -1,0 +1,6 @@
+string solve(string text, string key) {
+    for (int i = 0; i < text.length(); i++) {
+        text[i] = (text[i] - 'a' + key[i] - 'a') % 26 + 'a';
+    }
+    return text;
+}
