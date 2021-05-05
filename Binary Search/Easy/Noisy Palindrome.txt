@@ -1,0 +1,21 @@
+bool solve(string s) {
+    int i = 0,
+        j = s.length() - 1;
+    
+    while (i < j) {
+        if (!islower(s[i])) {
+            s[i++];
+            continue;
+        }
+
+        if (!islower(s[j])) {
+            s[j--];
+            continue;
+        }
+        
+        if (s[i++] != s[j--]) {
+            return false;
+        }
+    }
+    return true;
+}

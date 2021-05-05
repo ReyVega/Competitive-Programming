@@ -1,0 +1,21 @@
+/**
+ * class LLNode {
+ *     public:
+ *         int val;
+ *         LLNode *next;
+ * };
+ */
+LLNode* solve(LLNode* node) {
+    LLNode* current = node,
+          * prev = NULL, 
+          * next = NULL;
+
+    while (current != NULL) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    node = prev;
+    return node;
+}

@@ -1,0 +1,22 @@
+string solve(vector<string>& words) {
+    int n = words.size();
+
+    if (n == 0) {
+        return "";
+    } else if (n == 1) {
+        return words[0];
+    } else {
+        sort(words.begin(), words.end());
+        string result = "";
+        int n1 = words[0].length();
+
+        for (int i = 0; i < n1; i++) {
+            if (words[0][i] == words[n - 1][i]) {
+                result += words[0][i];
+            } else {
+                break;
+            }
+        }
+        return result;
+    }
+}
